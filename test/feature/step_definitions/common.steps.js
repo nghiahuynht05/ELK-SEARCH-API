@@ -65,6 +65,29 @@ Given(/^I want to request api ELKSearch driver with data$/, function (table, cal
     })
 });
 
+Given(/^I want to request api ELKSearch partner with data$/, function (table, callback) {
+    var self = this;
+    var params = table.hashes()[0];
+    client.post({
+        url: 'http://192.168.2.84:9090/ws/api/v1/search/partner',
+        method: 'POST',
+        headers: {
+            'Authorization': 'Basic c3lzb3BzOnF3ZXJ0eTEzNTc=',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.parse(params.requestData),
+        json: true
+    }, function (err, httpRe, body) {
+        if (err) {
+            console.log(err)
+            callback()
+        }
+        debuglog('self.storage.returnData', JSON.stringify(body))
+        self.storage.returnData = body
+        callback()
+    })
+});
+
 Then(/^The return data should be matched correctly order with$/, function (table, callback) {
     var self = this;
     var expectedData = JSON.parse(table.hashes()[0].response);
