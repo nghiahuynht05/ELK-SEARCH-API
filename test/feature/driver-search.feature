@@ -137,7 +137,7 @@ Feature: Search name driver
 
         Then I should get the response data matches with
             | response                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-            | {"total": 15, "list":[{"userId":"5d5a780678e8f914451215f7"},{"userId":"5d5a6acfe66ccc0ab3adeceb"},{"userId":"5d5a6ab7e66ccc0ab3adece6"},{"userId":"5d5a57b18ea2287534f94a05"},{"userId":"5d5a578c8ea2287534f94a00"},{"userId":"5d5a567b8ea2287534f949fa"},{"userId":"5d5a54128ea2287534f949f3"},{"userId":"5d41634c49050a52af4b3e8f"},{"userId":"5d40153ebd234f2f49ffba00"},{"userId":"5d3e596046694d6a60b712d2"},{"userId":"5d3e594646694d6a60b712cd"},{"userId":"5d3914266789a11b4c9b5d6b"},{"userId":"5d36db57f042ee5f62b35bd3"},{"userId":"5d358b00f6c6af6e91a93ae2"},{"userId":"5d3523c5e01cf260ad22cacc"}]} |
+            | {"total": 18, "list":[{"userId":"5d5a780678e8f914451215f7"},{"userId":"5d5a6acfe66ccc0ab3adeceb"},{"userId":"5d5a6ab7e66ccc0ab3adece6"},{"userId":"5d5a57b18ea2287534f94a05"},{"userId":"5d5a578c8ea2287534f94a00"},{"userId":"5d5a567b8ea2287534f949fa"},{"userId":"5d5a54128ea2287534f949f3"},{"userId":"5d41634c49050a52af4b3e8f"},{"userId":"5d40153ebd234f2f49ffba00"},{"userId":"5d3e596046694d6a60b712d2"},{"userId":"5d3e594646694d6a60b712cd"},{"userId":"5d3914266789a11b4c9b5d6b"},{"userId":"5d36db57f042ee5f62b35bd3"},{"userId":"5d358b00f6c6af6e91a93ae2"},{"userId":"5d3523c5e01cf260ad22cacc"}]} |
 
         # search email is characters
         When I want to request api ELKSearch driver with data
@@ -145,8 +145,8 @@ Feature: Search name driver
             | {"size":20,"from":0,"query":{"fleetId":"yumi","companyId": "all","zoneId": "all","txtSearch":"a","searchBy":"email"}} |
 
         Then I should get the response data matches with
-            | response                                                     |
-            | {"total": 1, "list":[{"userId":"5d358b00f6c6af6e91a93ae2"}]} |
+            | response                                                                                                                                                                                                                                                   |
+            | {"total": 6, "list":[{"userId":"5d8c15959d9d7d4194d8d708"},{"userId":"5d8c152f9d9d7d4194d8d704"},{"userId":"5d5a6acfe66ccc0ab3adeceb"},{"userId":"5d5a54128ea2287534f949f3"},{"userId":"5d40153ebd234f2f49ffba00"},{"userId":"5d358b00f6c6af6e91a93ae2"}]} |
 
         # search email is format x@
         When I want to request api ELKSearch driver with data
@@ -163,8 +163,8 @@ Feature: Search name driver
             | {"size":20,"from":0,"query":{"fleetId":"yumi","companyId": "all","zoneId": "all","txtSearch":"@gm","searchBy":"email"}} |
 
         Then I should get the response data matches with
-            | response                                                     |
-            | {"total": 1, "list":[{"userId":"5d358b00f6c6af6e91a93ae2"}]} |
+            | response                                                                                                                                                                       |
+            | {"total": 4, "list":[{"userId":"5d8c15959d9d7d4194d8d708"},{"userId":"5d5a6acfe66ccc0ab3adeceb"},{"userId":"5d40153ebd234f2f49ffba00"},{"userId":"5d358b00f6c6af6e91a93ae2"}]} |
 
     Scenario: 04. Operator search driver by username
         # Search default, sort by registration date
